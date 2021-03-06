@@ -72,6 +72,7 @@
     mode: "{{ item.directory_mode|default('0775') }}"
     setype: "{{ item.setype|default('samba_share_t') }}"
   tags: samba
+  when: item.create_share
 
 - name: Ensure webserver document root exists
   file:
